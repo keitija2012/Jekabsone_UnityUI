@@ -1,20 +1,62 @@
+# Jekabsone_UnityUI — Ieskaistes darbs Unity 2D UI
 
-# Jēkabsone_UnityUI – Ieskaites darbs Unity 2D UI
+**Autore:** Monta Jēkabsone  
+**Unity versija:** 6.3 LTS  
+**Projekta veids:** 2D UI interfeiss ar tēla pielāgošanu
 
-**Unity versija:** [6.3 LTS]
+---
 
-**Apraksts**  
-2D tēla apģērbšanas un aprīkojuma izvēles projekts ar Unity UI elementiem.
+## 📌 Projekta apraksts
+Šis ir Unity 2D UI projekts, kura mērķis ir izveidot interaktīvu tēla apģērbšanas un aprīkojuma izvēles sistēmu. Lietotājs var ievadīt datus, izvēlēties tēlu, pielāgot tā izskatu, mainīt izmērus un izmantot drag & drop funkcionalitāti.
 
-**Galvenās funkcionalitātes**  
-- Sākuma izvēlne (Start / Quit)  
-- Vārda un dzimšanas gada ievade + vecuma aprēķins  
-- Dropdown ar tēlu izvēli  
-- Toggle grupas apģērbam (bikses, zābaki, cepures, cimdi, amuleti)  
-- Drag & Drop aprīkojuma novietošana uz tēla  
-- Sliders tēla garumam un platumam  
-- ScrollView ar tēlu aprakstiem  
-- Skaņas efekti (pogu klikšķi, fona mūzika, ekipēšanās skaņa)
+Projekts demonstrē prasmes darbā ar Unity UI elementiem, skriptiem, skaņu, prefabiem un ainu pārslēgšanu.
 
-**Kā palaist**  
-Lejupielādē build mapi un palaid .exe
+---
+
+## 🎮 Galvenās funkcionalitātes
+
+### 🔹 Sākuma izvēlne
+- Start poga (pārslēdz uz Customization ainu)
+- Quit poga
+- Skaņas efekti pogām
+
+### 🔹 Datu ievade
+- Vārda ievade
+- Dzimšanas gada ievade
+- Automātisks vecuma aprēķins
+
+### 🔹 Tēla izvēle
+- Dropdown ar vairākiem tēlu variantiem
+- Tēla sprite nomaiņa pēc izvēles
+
+### 🔹 Apģērba izvēle
+- Toggle grupas:
+  - Bikses
+  - Zābaki
+  - Cepures
+  - Cimdi
+  - Amuleti
+- Vienlaicīgi iespējams izvēlēties tikai vienu no katras kategorijas
+
+### 🔹 Drag & Drop aprīkojums
+- Velkams aprīkojums
+- “Sloti” uz tēla, kuros var nomest priekšmetus
+- Ekipēšanas skaņa
+
+### 🔹 Tēla izmēra maiņa
+- Sliders tēla garumam
+- Sliders tēla platumam
+
+### 🔹 ScrollView apraksti
+- Tēlu apraksti
+- Automātiska teksta nomaiņa pēc izvēles
+
+### 🔹 Skaņas
+- Pogu klikšķi
+- Fona mūzika
+- Ekipēšanas skaņa
+
+---
+
+## 📁 Projekta struktūra
+
