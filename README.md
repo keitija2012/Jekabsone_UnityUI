@@ -1,62 +1,31 @@
-# Jekabsone_UnityUI — Ieskaistes darbs Unity 2D UI
+# Character Customization UI
 
-**Autore:** Monta Jēkabsone  
-**Unity versija:** 6.3 LTS  
-**Projekta veids:** 2D UI interfeiss ar tēla pielāgošanu
+**Ieskaites darbs** – Unity 2D/3D UI sistēma ar reāllaika rakstzīmju pielāgošanu.
 
----
+## Projekta apraksts
+Šis projekts realizē interaktīvu 3D rakstzīmju customizācijas sistēmu Unity vidē. 
+Lietotājs var izvēlēties apģērbu un skatīt izmaiņas reāllaikā caur 3D preview logu.
 
-## 📌 Projekta apraksts
-Šis ir Unity 2D UI projekts, kura mērķis ir izveidot interaktīvu tēla apģērbšanas un aprīkojuma izvēles sistēmu. Lietotājs var ievadīt datus, izvēlēties tēlu, pielāgot tā izskatu, mainīt izmērus un izmantot drag & drop funkcionalitāti.
+## Galvenās funkcionalitātes
+- Reāllaika 3D rakstzīmes priekšskatījums (Render Texture + RawImage)
+- Apģērbu izvēle (krekli, bikses, apavi, mati u.c.)
+- UI sadalīts trīs kolonnās (Left, Center, Right)
+- Vienkārša rakstzīmes rotācija ar peli
 
-Projekts demonstrē prasmes darbā ar Unity UI elementiem, skriptiem, skaņu, prefabiem un ainu pārslēgšanu.
+## Izmantotās tehnoloģijas
+- **Unity versija**: 6.3 LTS
+- **Render Pipeline**: Universal Render Pipeline (URP)
+- **UI sistēma**: Unity uGUI + Render Texture
+- **Version Control**: Git + GitHub
 
----
+## Kā palaist projektu
+1. Atver projektu ar **Unity 6.3 LTS**
+2. Atver scenu `Assets/Scenes/Customization.unity`
+3. Nospied **Play** pogu
 
-## 🎮 Galvenās funkcionalitātes
+## Versiju kontrole
+Projekts tiek aktīvi un jēgpilni versionēts ar Git. Katra lielāka funkcionalitāte ir atsevišķā commit'ā ar skaidriem aprakstiem.
 
-### 🔹 Sākuma izvēlne
-- Start poga (pārslēdz uz Customization ainu)
-- Quit poga
-- Skaņas efekti pogām
-
-### 🔹 Datu ievade
-- Vārda ievade
-- Dzimšanas gada ievade
-- Automātisks vecuma aprēķins
-
-### 🔹 Tēla izvēle
-- Dropdown ar vairākiem tēlu variantiem
-- Tēla sprite nomaiņa pēc izvēles
-
-### 🔹 Apģērba izvēle
-- Toggle grupas:
-  - Bikses
-  - Zābaki
-  - Cepures
-  - Cimdi
-  - Amuleti
-- Vienlaicīgi iespējams izvēlēties tikai vienu no katras kategorijas
-
-### 🔹 Drag & Drop aprīkojums
-- Velkams aprīkojums
-- “Sloti” uz tēla, kuros var nomest priekšmetus
-- Ekipēšanas skaņa
-
-### 🔹 Tēla izmēra maiņa
-- Sliders tēla garumam
-- Sliders tēla platumam
-
-### 🔹 ScrollView apraksti
-- Tēlu apraksti
-- Automātiska teksta nomaiņa pēc izvēles
-
-### 🔹 Skaņas
-- Pogu klikšķi
-- Fona mūzika
-- Ekipēšanas skaņa
-
----
-
-## 📁 Projekta struktūra
+## Autors
+[Monta Jēkabsone] — Ieskaites darbs Unity UI
 
