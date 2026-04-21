@@ -5,21 +5,22 @@ using System;
 
 public class NameScript : MonoBehaviour
 {
-    [Header("Ievades un Izvades Lauki")]
+    [Header("UI Ievades Lauki")]
     public TMP_InputField nameInputField;
     public TMP_InputField yearInputField;
     public TMP_Text outputText;
     public Toggle reverseTextToggle;
 
-    [Header("Audio")]
+    [Header("Audio Iestatîjumi")]
     public AudioSource audioSource;
     public AudioClip[] audioClipi;
 
     [Header("Dropdown un Tçli")]
-    public TMP_Dropdown teluDropdown; // Ievelc jauno Dropdown
-    public GameObject zens;         // Ievelc objektu "Galvenais tçls"
-    public GameObject meitene;      // Ievelc objektu "Otrs tçls"
+    public TMP_Dropdown teluDropdown;
+    public GameObject zens;
+    public GameObject meitene;
 
+    // Galvenâ poga: Vârds, Vecums un Skaòa
     public void GetText()
     {
         string vards = nameInputField.text;
@@ -34,7 +35,7 @@ public class NameScript : MonoBehaviour
         }
         else
         {
-            outputText.text = "Lûdzu, aizpildi visus laukus!";
+            outputText.text = "Lûdzu, aizpildi visus laukus pareizi!";
         }
 
         if (audioSource != null && audioClipi.Length > 0)
@@ -43,18 +44,27 @@ public class NameScript : MonoBehaviour
         }
     }
 
-    // JAUNA FUNKCIJA: Izsauksies, kad mainîsi Dropdown izvçli
+    // Tçlu pârslçgðana caur Dropdown
     public void MainitTelu()
     {
-        if (teluDropdown.value == 0) // Ja izvçlçts "Zçns"
+        if (teluDropdown.value == 0)
         {
             zens.SetActive(true);
             meitene.SetActive(false);
         }
-        else // Ja izvçlçts "Meitene"
+        else
         {
             zens.SetActive(false);
             meitene.SetActive(true);
+        }
+    }
+
+    // Apìçrbu pârslçgðana caur Toggle pogâm
+    public void GerbtElementu(GameObject elements)
+    {
+        if (elements != null)
+        {
+            elements.SetActive(!elements.activeSelf);
         }
     }
 }
