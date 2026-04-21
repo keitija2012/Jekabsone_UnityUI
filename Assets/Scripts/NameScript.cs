@@ -1,51 +1,60 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System; // Nepiecieðams vecuma aprçíinam
+using System;
 
 public class NameScript : MonoBehaviour
 {
-    [Header("UI Ievades Lauki")]
-    public TMP_InputField nameInputField; // NameField (tçla vârdam)
-    public TMP_InputField yearInputField; // YearField (dzimðanas gadam)
+    [Header("Ievades un Izvades Lauki")]
+    public TMP_InputField nameInputField;
+    public TMP_InputField yearInputField;
+    public TMP_Text outputText;
+    public Toggle reverseTextToggle;
 
-    [Header("UI Izvades Elementi")]
-    public TMP_Text outputText;           // OutputText (rezultâtam)
-    public Toggle reverseTextToggle;      // Tava Toggle poga
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] audioClipi;
 
-    [Header("Audio Iestatîjumi")]
-    public AudioSource audioSource;       // EffectSours
-    public AudioClip[] audioClipi;        // Skaòu saraksts
+    [Header("Dropdown un Tçli")]
+    public TMP_Dropdown teluDropdown; // Ievelc jauno Dropdown
+    public GameObject zens;         // Ievelc objektu "Galvenais tçls"
+    public GameObject meitene;      // Ievelc objektu "Otrs tçls"
 
     public void GetText()
     {
-        // 1. Iegûstam datus no laukiem
         string vards = nameInputField.text;
-        string gadaTeksts = yearInputField.text;
-
-        // 2. Vecuma aprçíina loìika
         int dzimsanasGads;
-        bool vaiGadsIrSkaitlis = int.TryParse(gadaTeksts, out dzimsanasGads);
-        int pasreizejaisGads = DateTime.Now.Year;
-        int vecums = pasreizejaisGads - dzimsanasGads;
+        bool vaiIrSkaitlis = int.TryParse(yearInputField.text, out dzimsanasGads);
+        int vecums = DateTime.Now.Year - dzimsanasGads;
 
-        // 3. Rezultâta attçloðana tavâ stilâ
-        if (vards != "" && vaiGadsIrSkaitlis)
+        if (vards != "" && vaiIrSkaitlis)
         {
             outputText.text = "Supervaronis " + vards + " ir " + vecums + " gadus vecs!";
-
-            // Aktivizçjam Toggle tikai tad, ja viss ievadîts pareizi
             reverseTextToggle.interactable = true;
         }
         else
         {
-            outputText.text = "Lûdzu, ievadi vârdu un skaitïiem atbilstoðu gadu!";
+            outputText.text = "Lûdzu, aizpildi visus laukus!";
         }
 
-        // 4. Skaòas atskaòoðana (pirmâ skaòa sarakstâ)
         if (audioSource != null && audioClipi.Length > 0)
         {
             audioSource.PlayOneShot(audioClipi[0]);
+        }
+    }
+
+    // JAUNA FUNKCIJA: Izsauksies, kad mainîsi Dropdown izvçli
+    public void MainitTelu()
+    {
+        if (teluDropdown.value == 0) // Ja izvçlçts "Zçns"
+        {
+            zens.SetActive(true);
+            meitene.SetActive(false);
+        }
+        else // Ja izvçlçts "Meitene"
+        {
+            zens.SetActive(false);
+            meitene.SetActive(true);
         }
     }
 }
