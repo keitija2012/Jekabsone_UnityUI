@@ -1,24 +1,51 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using System; // Nepiecieðams vecuma aprçíinam
 
 public class NameScript : MonoBehaviour
 {
-    private string text;
-    private string[] sampeText = { "Hello", "Have a nice day", "Nice to see you",
-    "Look what's here", "Goodbye" };
-    int randomIx;
+    [Header("UI Ievades Lauki")]
+    public TMP_InputField nameInputField; // NameField (tçla vârdam)
+    public TMP_InputField yearInputField; // YearField (dzimðanas gadam)
 
-    public GameObject inputField;
-    public GameObject outputField;
-    public GameObject reverseTextToggle;
+    [Header("UI Izvades Elementi")]
+    public TMP_Text outputText;           // OutputText (rezultâtam)
+    public Toggle reverseTextToggle;      // Tava Toggle poga
+
+    [Header("Audio Iestatîjumi")]
+    public AudioSource audioSource;       // EffectSours
+    public AudioClip[] audioClipi;        // Skaòu saraksts
 
     public void GetText()
     {
-        randomIx = Random.Range(0, sampeText.Length);
-        text = inputField.GetComponent<TMP_InputField>().text;
-        outputField.GetComponent<TMP_Text>().text = sampeText[randomIx] + " " + text.ToUpper() + "!";
+        // 1. Iegûstam datus no laukiem
+        string vards = nameInputField.text;
+        string gadaTeksts = yearInputField.text;
 
-        reverseTextToggle.GetComponent<Toggle>().interactable = true;
+        // 2. Vecuma aprçíina loìika
+        int dzimsanasGads;
+        bool vaiGadsIrSkaitlis = int.TryParse(gadaTeksts, out dzimsanasGads);
+        int pasreizejaisGads = DateTime.Now.Year;
+        int vecums = pasreizejaisGads - dzimsanasGads;
+
+        // 3. Rezultâta attçloðana tavâ stilâ
+        if (vards != "" && vaiGadsIrSkaitlis)
+        {
+            outputText.text = "Supervaronis " + vards + " ir " + vecums + " gadus vecs!";
+
+            // Aktivizçjam Toggle tikai tad, ja viss ievadîts pareizi
+            reverseTextToggle.interactable = true;
+        }
+        else
+        {
+            outputText.text = "Lûdzu, ievadi vârdu un skaitïiem atbilstoðu gadu!";
+        }
+
+        // 4. Skaòas atskaòoðana (pirmâ skaòa sarakstâ)
+        if (audioSource != null && audioClipi.Length > 0)
+        {
+            audioSource.PlayOneShot(audioClipi[0]);
+        }
     }
 }
